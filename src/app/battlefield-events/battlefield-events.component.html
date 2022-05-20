@@ -1,0 +1,73 @@
+<div class="Header">
+    <span>ARL PROJECT</span>
+    <button type="button" 
+            class="btn btn-primary" 
+            data-bs-toggle="modal" 
+            data-bs-target="#exampleModal" 
+            style="background-color: #FFFFFF; color: #0D6EFD; align-items: right; float: right;">
+        Command Center
+    </button>
+</div>
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="row">
+            <div class="map-container">
+                <div class="map-frame">
+                  <div id="map"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="Footer">
+    <span> Copyright 2022, CARDS, UMBC.</span>
+</div>
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Command Center</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        
+        <div class="modal-body">
+            <form>
+                <div class="form-group">
+                  <label for="exampleFormControlSelect1">Select Asset</label>
+                  <select class="form-control" id="exampleFormControlSelect1">
+                    <option>BGV 1</option>
+                    <option>BGV 2</option>
+                    <option>BGV 3</option>
+                  </select>
+                </div>
+
+                <br>
+
+                <div class="form-group">
+                  <label for="exampleFormControlSelect2">Select Command</label>
+                  <select class="form-control" id="exampleFormControlSelect2">
+                    <option>Command 1</option>
+                    <option>Command 2</option>
+                    <option>Command 3</option>
+                    <option>Command 4</option>
+                  </select>
+                </div>
+
+                <br>
+
+            </form>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary">Send Command</button>
+        </div>
+
+      </div>
+    </div>
+  </div>

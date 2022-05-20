@@ -1,0 +1,27 @@
+.Header{
+    position: fixed;
+    top:0%;
+    margin-left:-10px;
+    background-color: #4192F2;
+    padding: 10px;
+    width: 100%;
+    color: #ffffff;
+    font-size: 28px;
+}
+
+.Footer{
+    position: fixed;
+    bottom:0%;
+    margin-left: -10px;
+    background-color: #4192F2;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+    color: #ffffff;
+}
+
+.Body{
+    margin-top: 150px;
+    align-items: center;
+    align-self: center;
+}
