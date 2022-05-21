@@ -19,14 +19,20 @@ export class EventService {
     let date = moment().format("YYYY-MM-DD HH:mm:ss").toString();
     let datepart1 = date.substring(0,11);
     let datepart2 = date.substring(11);
+    var datepart3 = +datepart2.substring(6);
+    // console.log(datepart3)
+    datepart3 = datepart3 -1;
+    // console.log(datepart3)
+    let datepart2_final = datepart2.substring(0,6) + datepart3.toString();
+    // console.log(datepart2_final)
 
-    let url = ("http://localhost:8081/battle/" + datepart1 + "%20" + datepart2).toString();
+    let url = ("http://localhost:8082/battle/" + datepart1 + "%20" + datepart2_final).toString();
     // let url = ("http://localhost:8081/battle/2022-05-04 22:31:50.755202").toString();
     // return this.http.get<EventInterface[]>(url)
     console.log((url))
     let jObject = this.http.get<any>(url);
     
-    // console.log(jO)
+    jObject.subscribe( load => console.log(load))
     return this.http.get<Payload[]>(url);
   }
 

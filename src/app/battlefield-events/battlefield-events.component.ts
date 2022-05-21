@@ -47,17 +47,33 @@ export class BattlefieldEventsComponent implements AfterViewInit {
     
     this.map = L.map('map', 
     {
-      center: [39.260914, -76.714778],
-      zoom: 19
+      // center: [39.260914, -76.714778],
+      center: [39.35065265202445, -76.34512189088021],
+      zoom: 16
     });
 
-    const tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 30, minZoom: 3,
+    const tiles1 = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 30, minZoom: 3,
                                                                                       attribution: 
                                                                                       '<b>By: CARDS </b>' +
                                                                                       '<br> <img src = "assets/Orange.png" style="width:10px;height:10px;"> <b> : Human</b><br>' +  
                                                                                       '<img src = "assets/Blue.png" style="width:10px;height:10px;"> <b> : Vehicle</b><br>' +
                                                                                       '<img src= "assets/icons8-autonomous-vehicles-90.png" style="width: 15px; height: 15px;"> <b> : BGV</b><br>'
                                                                                     }); 
+
+
+    const tiles = L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',{
+      maxZoom: 20,
+      subdomains:['mt0','mt1','mt2','mt3'],
+      attribution: 
+                                                                                      '<b>By: CARDS </b>' +
+                                                                                      '<br> <img src = "assets/Orange.png" style="width:10px;height:10px;"> <b> : Human</b><br>' +  
+                                                                                      '<img src = "assets/Blue.png" style="width:10px;height:10px;"> <b> : Vehicle</b><br>' +
+                                                                                      '<img src= "assets/icons8-autonomous-vehicles-90.png" style="width: 15px; height: 15px;"> <b> : BGV</b><br>'
+                                                                                    
+      
+
+              });
+
     tiles.addTo(this.map);
     this.map.attributionControl.setPosition('topright');
 
@@ -86,7 +102,7 @@ export class BattlefieldEventsComponent implements AfterViewInit {
         const obs$ = interval(1000);
         this.firstObsSubs = obs$.subscribe(
           (d) => {
-            if(count<20)
+            if(count<100)
             {
               this.onGetEvents();
               console.log(d);
@@ -113,7 +129,7 @@ export class BattlefieldEventsComponent implements AfterViewInit {
   {
 
     this.eventS.getEvents().subscribe(
-      (response) => this.mapEvents(response[0]),
+      (response) => this.mapEvents(response),
       // (response) => console.log(response),
       (error) => console.log("Error"),
       () => console.log("Done"),
@@ -127,8 +143,8 @@ export class BattlefieldEventsComponent implements AfterViewInit {
   mapEvents(e1: any)
   {
 
-    let e = e1 as Payload;
-    console.log(e)
+        var e = e1 as Payload;
+    
     
     if(!(typeof e === 'undefined'))
     {
@@ -245,9 +261,9 @@ export class BattlefieldEventsComponent implements AfterViewInit {
         
         if(this.countx == 0)
         {
-          var bgv1 = L.marker([39.25972630637432, -76.71488637106253], {icon : myIcon3}).addTo(this.map);
-          var bgv2 = L.marker([39.25999390383873, -76.71438859459472], {icon : myIcon3}).addTo(this.map);
-          var bgv3 = L.marker([39.2609384747745, -76.7157349121894],   {icon : myIcon3}).addTo(this.map);
+          var bgv1 = L.marker([39.35151547165209, -76.34237530904761],  {icon : myIcon3}).addTo(this.map);
+          var bgv2 = L.marker([39.3489767603811, -76.34299758149406] ,  {icon : myIcon3}).addTo(this.map);
+          var bgv3 = L.marker([39.34917587832393, -76.3473964039603] ,  {icon : myIcon3}).addTo(this.map);
           this.countx = 1;
         }
         
